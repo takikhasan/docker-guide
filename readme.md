@@ -6,8 +6,8 @@ This example uses Mongo DB, Node JS & Vue
 
 ## Windows
 
-- Docker UI: **Docker Desktop**
-- MongoDB UI: **MongoDB Compass**
+> - Docker UI: **Docker Desktop**
+> - MongoDB UI: **MongoDB Compass**
 
 # General
 

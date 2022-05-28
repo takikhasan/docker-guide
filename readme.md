@@ -1,6 +1,6 @@
 # Dockerized Webapp Guide + Cheatsheet
 
-This example uses Mongo DB, Node JS & Vue
+This example uses MongoDB, Node.js & Vue.js
 
 # Dev Tools
 

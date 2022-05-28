@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  db:
+    image: mongo
+    container_name: db_container
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: takik
+      MONGO_INITDB_ROOT_PASSWORD: test-password
+    volumes:
+      - db_data:/data/db
+      - db_config:/data/configdb
+
+  db-backup:
+    profiles:
+      - backup
+    image: alpine
+    tty: false
+    environment:
+      - TARGET=dbdata
+    volumes:
+      - ./backup:/backup
+      - db_data:/volume
+    command: sh -c "tar -cjf /backup/$${TARGET}.tar.bz2 -C /volume ./"
+
+  db-restore:
+    profiles:
+      - restore
+    image: alpine    
+    environment:
+      - SOURCE=dbdata
+    volumes:
+      - ./backup:/backup
+      - db_data:/volume
+    command: sh -c "rm -rf /volume/* /volume/..?* /volume/.[!.]* ; tar -C /volume/ -xjf /backup/$${SOURCE}.tar.bz2"
+volumes:
+  db_data:
+  db_config:

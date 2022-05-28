@@ -1,6 +1,13 @@
 # Dockerized Webapp Guide + Cheatsheet
 
-This example uses Mongo DB, Node JS, Vue
+This example uses Mongo DB, Node JS & Vue
+
+# Dev Tools
+
+## Windows
+
+- Docker UI: **Docker Desktop**
+- MongoDB UI: **MongoDB Compass**
 
 # General
 
